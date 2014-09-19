@@ -1,5 +1,5 @@
 AndroidStudioSandbox
 ====================
 
-Android Studio testing
-and Android L and Wear sandbox
+Start with Android Studio
+Testing the Android Studio, the new Android L and Android Wear features.
