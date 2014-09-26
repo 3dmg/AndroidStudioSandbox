@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.widget.DrawerLayout;
 
-
 public class HomeActivity extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
