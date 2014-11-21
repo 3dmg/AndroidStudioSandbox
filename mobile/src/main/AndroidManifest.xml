@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="at.mg.androidstudiosandbox" >
+    package="at.mg.androidstudiosandbox">
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name="at.mg.androidstudiosandbox.HomeActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="at.mg.androidstudiosandbox.ToolbarActivity"
+            android:label="@string/title_activity_toolbar"
+            android:parentActivityName="at.mg.androidstudiosandbox.HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="at.mg.androidstudiosandbox.HomeActivity" />
         </activity>
     </application>
 
