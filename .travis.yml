@@ -2,11 +2,11 @@ language: android
 
 android:
   components:
-    - build-tools-20.0.0
-    - android-L
+    - build-tools-21.0.2
+    - android-21
     - extra-android-support
     - extra-google-google_play_services
     - extra-google-m2repository
 
 script:
-  "./gradlew build mobile"
+  ./gradlew build mobile
