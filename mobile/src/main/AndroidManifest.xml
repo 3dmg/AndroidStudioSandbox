@@ -24,6 +24,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="at.mg.androidstudiosandbox.HomeActivity" />
         </activity>
+        <activity
+            android:name="at.mg.androidstudiosandbox.VoiceSearchableActivity"
+            android:label="@string/title_activity_voice_searchable">
+            <intent-filter>
+                <action android:name="com.google.android.gms.actions.SEARCH_ACTION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
