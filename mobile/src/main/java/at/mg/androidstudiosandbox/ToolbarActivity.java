@@ -12,7 +12,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toolbar;
+
+import java.util.List;
 
 
 public class ToolbarActivity extends Activity {
@@ -74,25 +78,100 @@ public class ToolbarActivity extends Activity {
      */
     public static class PlaceholderFragment extends Fragment {
 
+        boolean useImage1 = false;
+
         public PlaceholderFragment() {
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_toolbar, container, false);
+            final View rootView = inflater.inflate(R.layout.fragment_toolbar, container, false);
 
-            // https://chris.banes.me/2014/10/20/palette-v21/
+            // see https://chris.banes.me/2014/10/20/palette-v21/
 
-            Palette.generateAsync(BitmapFactory.decodeResource(getResources(), R.drawable.palettetest), 24, new Palette.PaletteAsyncListener() {
+            paletteTest(rootView, R.drawable.palettetest);
+
+            final ImageView image = (ImageView) rootView.findViewById(R.id.toolbar_image);
+
+            image.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onGenerated(Palette palette) {
-
+                public void onClick(View v) {
+                    image.setImageResource(useImage1 ? R.drawable.palettetest : R.drawable.palettetest2);
+                    paletteTest(rootView, useImage1 ? R.drawable.palettetest : R.drawable.palettetest2);
+                    useImage1 = !useImage1;
                 }
             });
 
 
             return rootView;
         }
+
+        private void paletteTest(final View rootView, int drawable) {
+            Palette.generateAsync(BitmapFactory.decodeResource(getResources(), drawable), 24, new Palette.PaletteAsyncListener() {
+                @Override
+                public void onGenerated(Palette palette) {
+                    Palette.Swatch swatch;
+                    TextView text;
+
+                    List<Palette.Swatch> swatches = palette.getSwatches();
+
+                    text = (TextView) rootView.findViewById(R.id.toolbar_swatchcount);
+                    text.setBackgroundColor(swatches.get(0).getRgb());
+                    text.setTextColor(swatches.get(0).getTitleTextColor());
+                    text.setText("swatches " + swatches.size());
+
+                    //vibrant color
+                    swatch = palette.getVibrantSwatch();
+                    if (swatch != null) {
+                        text = (TextView) rootView.findViewById(R.id.toolbar_vibrant);
+                        text.setBackgroundColor(swatch.getRgb());
+                        text.setTextColor(swatch.getTitleTextColor());
+                    }
+
+                    // light vibrant color
+                    swatch = palette.getLightVibrantSwatch();
+                    if (swatch != null) {
+                        text = (TextView) rootView.findViewById(R.id.toolbar_lightvibrant);
+                        text.setBackgroundColor(swatch.getRgb());
+                        text.setTextColor(swatch.getTitleTextColor());
+                    }
+
+                    // dark vibrant color
+                    swatch = palette.getDarkVibrantSwatch();
+                    if (swatch != null) {
+                        text = (TextView) rootView.findViewById(R.id.toolbar_darkvibrant);
+                        text.setBackgroundColor(swatch.getRgb());
+                        text.setTextColor(swatch.getTitleTextColor());
+                    }
+
+                    // muted color
+                    swatch = palette.getMutedSwatch();
+                    if (swatch != null) {
+                        text = (TextView) rootView.findViewById(R.id.toolbar_muted);
+                        text.setBackgroundColor(swatch.getRgb());
+                        text.setTextColor(swatch.getTitleTextColor());
+                    }
+
+                    // light muted color
+                    swatch = palette.getLightMutedSwatch();
+                    if (swatch != null) {
+                        text = (TextView) rootView.findViewById(R.id.toolbar_lightmuted);
+                        text.setBackgroundColor(swatch.getRgb());
+                        text.setTextColor(swatch.getTitleTextColor());
+                    }
+
+                    // dark muted color
+                    swatch = palette.getDarkMutedSwatch();
+                    if (swatch != null) {
+                        text = (TextView) rootView.findViewById(R.id.toolbar_darkmuted);
+                        text.setBackgroundColor(swatch.getRgb());
+                        text.setTextColor(swatch.getTitleTextColor());
+                    }
+                }
+            });
+        }
     }
+
+
 }
