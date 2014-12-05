@@ -12,5 +12,6 @@
     <string name="hello_world">Hello World</string>
     <string name="title_activity_toolbar">ToolbarActivity</string>
     <string name="title_activity_voice_searchable">VoiceSearchableActivity</string>
+    <string name="transition_image">transimg</string>
 
 </resources>
