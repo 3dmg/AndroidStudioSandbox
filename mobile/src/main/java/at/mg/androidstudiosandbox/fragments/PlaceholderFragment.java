@@ -1,4 +1,4 @@
-package at.mg.androidstudiosandbox;
+package at.mg.androidstudiosandbox.fragments;
 
 import android.animation.Animator;
 import android.app.Activity;
@@ -13,6 +13,10 @@ import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import at.mg.androidstudiosandbox.R;
+import at.mg.androidstudiosandbox.activities.HomeActivity;
+import at.mg.androidstudiosandbox.activities.ToolbarActivity;
 
 
 /**
@@ -29,8 +33,8 @@ public class PlaceholderFragment extends Fragment {
      * Returns a new instance of this fragment for the given section
      * number.
      */
-    public static at.mg.androidstudiosandbox.PlaceholderFragment newInstance(int sectionNumber) {
-        at.mg.androidstudiosandbox.PlaceholderFragment fragment = new at.mg.androidstudiosandbox.PlaceholderFragment();
+    public static PlaceholderFragment newInstance(int sectionNumber) {
+        PlaceholderFragment fragment = new PlaceholderFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);

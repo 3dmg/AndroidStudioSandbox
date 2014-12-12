@@ -1,4 +1,4 @@
-package at.mg.androidstudiosandbox;
+package at.mg.androidstudiosandbox.activities;
 
 import android.app.SearchManager;
 import android.content.Intent;
@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.gms.actions.SearchIntents;
+
+import at.mg.androidstudiosandbox.R;
 
 
 /**

@@ -1,4 +1,4 @@
-package at.mg.androidstudiosandbox;
+package at.mg.androidstudiosandbox.activities;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -17,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toolbar;
 
 import java.util.List;
+
+import at.mg.androidstudiosandbox.R;
 
 
 public class ToolbarActivity extends Activity {

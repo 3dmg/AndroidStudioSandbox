@@ -1,4 +1,4 @@
-package at.mg.androidstudiosandbox;
+package at.mg.androidstudiosandbox.fragments;
 
 
 import android.app.ActionBar;
@@ -22,6 +22,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.Toolbar;
+
+import at.mg.androidstudiosandbox.R;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.

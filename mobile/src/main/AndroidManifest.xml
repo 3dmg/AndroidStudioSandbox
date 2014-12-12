@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name="at.mg.androidstudiosandbox.HomeActivity"
+            android:name=".activities.HomeActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,15 +17,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="at.mg.androidstudiosandbox.ToolbarActivity"
+            android:name=".activities.ToolbarActivity"
             android:label="@string/title_activity_toolbar"
-            android:parentActivityName="at.mg.androidstudiosandbox.HomeActivity">
+            android:parentActivityName=".activities.HomeActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="at.mg.androidstudiosandbox.HomeActivity" />
+                android:value=".activities.HomeActivity" />
         </activity>
         <activity
-            android:name="at.mg.androidstudiosandbox.VoiceSearchableActivity"
+            android:name=".activities.VoiceSearchableActivity"
             android:label="@string/title_activity_voice_searchable">
             <intent-filter>
                 <action android:name="com.google.android.gms.actions.SEARCH_ACTION" />

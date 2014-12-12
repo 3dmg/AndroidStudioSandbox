@@ -1,4 +1,4 @@
-package at.mg.androidstudiosandbox;
+package at.mg.androidstudiosandbox.activities;
 
 import android.app.Activity;
 
@@ -8,6 +8,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.widget.DrawerLayout;
+
+import at.mg.androidstudiosandbox.fragments.NavigationDrawerFragment;
+import at.mg.androidstudiosandbox.R;
+import at.mg.androidstudiosandbox.fragments.PlaceholderFragment;
 
 public class HomeActivity extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -43,7 +47,7 @@ public class HomeActivity extends Activity
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.container, at.mg.androidstudiosandbox.PlaceholderFragment.newInstance(position + 1))
+                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
                 .commit();
     }
 
