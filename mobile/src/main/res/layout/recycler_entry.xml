@@ -14,7 +14,6 @@
 
     <TextView
         android:id="@+id/recentry_desc"
-        android:layout_alignParentLeft="true"
         android:layout_below="@id/recentry_title"
         android:layout_alignLeft="@id/recentry_title"
         android:layout_marginTop="2dp"

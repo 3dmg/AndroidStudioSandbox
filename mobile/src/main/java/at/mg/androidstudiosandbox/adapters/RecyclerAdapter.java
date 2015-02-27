@@ -36,11 +36,28 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerListViewHolder
         recyclerListViewHolder.title.setText(object.title);
         recyclerListViewHolder.desc.setText(object.description);
         recyclerListViewHolder.date.setText(object.date);
-
     }
 
     @Override
     public int getItemCount() {
         return list != null ? list.size() : 0;
+    }
+
+
+    public void insertItem(int position, RecyclerDataObject dataObject) {
+        list.add(position, dataObject);
+        notifyItemInserted(position);
+//        notifyItemRangeInserted(position, 10);
+    }
+
+
+    public void removeItem(int position) {
+        list.remove(position);
+        notifyItemRemoved(position);
+//        notifyItemRangeRemoved(position, 10);
+    }
+
+    public void moveItem(int from, int to) {
+        notifyItemMoved(from, to);
     }
 }

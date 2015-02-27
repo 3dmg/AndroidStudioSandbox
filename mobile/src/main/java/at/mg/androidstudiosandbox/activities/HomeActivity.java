@@ -1,17 +1,17 @@
 package at.mg.androidstudiosandbox.activities;
 
-import android.app.Activity;
-
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.FragmentManager;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v4.widget.DrawerLayout;
 
-import at.mg.androidstudiosandbox.fragments.NavigationDrawerFragment;
 import at.mg.androidstudiosandbox.R;
+import at.mg.androidstudiosandbox.fragments.NavigationDrawerFragment;
 import at.mg.androidstudiosandbox.fragments.PlaceholderFragment;
+import at.mg.androidstudiosandbox.fragments.RecyclerFragment;
 
 public class HomeActivity extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -46,9 +46,19 @@ public class HomeActivity extends Activity
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
+        switch (position) {
+            case 0:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                        .commit();
+                break;
+            case 1:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, RecyclerFragment.newInstance())
+                        .commit();
+                break;
+
+        }
     }
 
     public void onSectionAttached(int number) {
