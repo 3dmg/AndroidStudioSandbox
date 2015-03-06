@@ -2,10 +2,11 @@ package at.mg.androidstudiosandbox.fragments;
 
 import android.animation.Animator;
 import android.app.Activity;
-import android.app.ActivityOptions;
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -79,10 +80,10 @@ public class PlaceholderFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ToolbarActivity.class);
                 String transitionName = getString(R.string.transition_image);
-//                ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), image, transitionName);
-//                ActivityCompat.startActivity(getActivity(), intent, optionsCompat);
-                ActivityOptions optionsCompat = ActivityOptions.makeSceneTransitionAnimation(getActivity(), image, transitionName);
-                startActivity(intent, optionsCompat.toBundle());
+                ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), image, transitionName);
+                ActivityCompat.startActivity(getActivity(), intent, optionsCompat.toBundle());
+//                ActivityOptions optionsCompat = ActivityOptions.makeSceneTransitionAnimation(getActivity(), image, transitionName);
+//                startActivity(intent, optionsCompat.toBundle());
             }
         });
 

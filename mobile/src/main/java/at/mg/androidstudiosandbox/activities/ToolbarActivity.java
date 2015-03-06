@@ -1,27 +1,27 @@
 package at.mg.androidstudiosandbox.activities;
 
-import android.app.ActionBar;
-import android.app.Activity;
+
 import android.app.Fragment;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.graphics.Palette;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
 import java.util.List;
 
 import at.mg.androidstudiosandbox.R;
 
 
-public class ToolbarActivity extends Activity {
+public class ToolbarActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class ToolbarActivity extends Activity {
 
         super.onCreate(savedInstanceState);
 
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 
         setContentView(R.layout.activity_toolbar);
@@ -37,9 +37,9 @@ public class ToolbarActivity extends Activity {
 
         Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
 
-        setActionBar(tb);
+        setSupportActionBar(tb);
 
-        ActionBar ab = getActionBar();
+        ActionBar ab = getSupportActionBar();
         assert ab != null;
         ab.setDisplayHomeAsUpEnabled(true);
 

@@ -1,14 +1,11 @@
 package at.mg.androidstudiosandbox.fragments;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -19,6 +16,7 @@ import java.util.Random;
 import at.mg.androidstudiosandbox.R;
 import at.mg.androidstudiosandbox.adapters.RecyclerAdapter;
 import at.mg.androidstudiosandbox.things.RecyclerDataObject;
+import at.mg.androidstudiosandbox.views.DividerItemDecoration;
 
 
 /**
@@ -90,18 +88,19 @@ public class RecyclerFragment extends Fragment {
 //        gesturedetector =
 //                new GestureDetectorCompat(this, new RecyclerViewDemoOnGestureListener());
 
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
 
-        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
-            @Override
-            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-                return false;
-            }
-
-            @Override
-            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-                Log.i("", "onTouchEvent " + e.getAction());
-            }
-        });
+//        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+//            @Override
+//            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+//                return false;
+//            }
+//
+//            @Override
+//            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+//                Log.i("", "onTouchEvent " + e.getAction());
+//            }
+//        });
 
 
         recyclerView.postDelayed(new Runnable() {
@@ -124,15 +123,16 @@ public class RecyclerFragment extends Fragment {
 //                adapter.moveItem(1, 5);
 //            }
 //        }, 2500);
-//
-        recyclerView.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                final GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 3);
-                recyclerView.setLayoutManager(gridLayoutManager);
-                adapter.notifyDataSetChanged();
-            }
-        }, 3000);
+
+        //change to gridlayout
+//        recyclerView.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                final GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 3);
+//                recyclerView.setLayoutManager(gridLayoutManager);
+//                adapter.notifyDataSetChanged();
+//            }
+//        }, 3000);
 
 
         return view;
