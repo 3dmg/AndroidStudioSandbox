@@ -17,6 +17,8 @@ before_install:
   # for gradle output style
   - export TERM=dumb
 
+  - chmod +x gradlew
+
   # environment info
   - ./gradlew -v
   - uname -a
