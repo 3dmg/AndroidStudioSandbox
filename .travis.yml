@@ -8,5 +8,20 @@ android:
     - extra-google-google_play_services
     - extra-google-m2repository
     - extra-android-m2repository
+    
+notifications:
+  email: false
+
+before_install:
+
+  # for gradle output style
+  - export TERM=dumb
+
+  # environment info
+  - ./gradlew -v
+  - uname -a
+
+# Let's try to build...
+script: ./gradlew clean build    
 
 
