@@ -93,8 +93,8 @@ public class PlaceholderFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        ((HomeActivity) activity).onSectionAttached(
-                getArguments().getInt(ARG_SECTION_NUMBER));
+//        ((HomeActivity) activity).onSectionAttached(
+//                getArguments().getInt(ARG_SECTION_NUMBER));
     }
 
 
