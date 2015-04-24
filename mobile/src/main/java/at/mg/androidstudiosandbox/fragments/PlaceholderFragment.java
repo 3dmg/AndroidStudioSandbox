@@ -113,7 +113,7 @@ public class PlaceholderFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Resources r = getResources();
-                AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).setTitle(r.getString(R.string.dialog_title))
+                AlertDialog alertDialog = new AlertDialog.Builder(getActivity(), R.style.AppCompatAlertDialogStyle).setTitle(r.getString(R.string.dialog_title))
                         .setMessage(r.getString(R.string.dialog_message)).setPositiveButton(r.getString(R.string.dialog_pos), null)
                         .setNegativeButton(r.getString(R.string.dialog_neg), null).setNeutralButton(r.getString(R.string.dialog_neutr), null).create();
                 alertDialog.show();
