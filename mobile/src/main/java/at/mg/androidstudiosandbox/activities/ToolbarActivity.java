@@ -5,7 +5,7 @@ import android.app.Fragment;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -21,16 +21,14 @@ import java.util.List;
 import at.mg.androidstudiosandbox.R;
 
 
-public class ToolbarActivity extends ActionBarActivity {
+public class ToolbarActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
 
         super.onCreate(savedInstanceState);
-
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
-
+        getWindow().setStatusBarColor(getResources().getColor(android.R.color.holo_blue_dark));
 
         setContentView(R.layout.activity_toolbar);
 

@@ -60,13 +60,15 @@ public class PlaceholderFragment extends Fragment {
         textView.post(new Runnable() {
             @Override
             public void run() {
-                Animator reveal = ViewAnimationUtils.createCircularReveal(
-                        textView, // The new View to reveal
-                        0,      // x co-ordinate to start the mask from
-                        0,      // y co-ordinate to start the mask from
-                        0,  // radius of the starting mask
-                        180);   // radius of the final mask
-                reveal.start();
+                if (textView.isAttachedToWindow()) {
+                    Animator reveal = ViewAnimationUtils.createCircularReveal(
+                            textView, // The new View to reveal
+                            0,      // x co-ordinate to start the mask from
+                            0,      // y co-ordinate to start the mask from
+                            0,  // radius of the starting mask
+                            180);   // radius of the final mask
+                    reveal.start();
+                }
             }
         });
 

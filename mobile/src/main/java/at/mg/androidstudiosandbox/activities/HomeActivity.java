@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -15,7 +15,7 @@ import at.mg.androidstudiosandbox.R;
 import at.mg.androidstudiosandbox.fragments.PlaceholderFragment;
 import at.mg.androidstudiosandbox.fragments.RecyclerFragment;
 
-public class HomeActivity extends ActionBarActivity {
+public class HomeActivity extends AppCompatActivity {
 
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;

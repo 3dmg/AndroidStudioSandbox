@@ -3,7 +3,7 @@ package at.mg.androidstudiosandbox.activities;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,7 +20,7 @@ import at.mg.androidstudiosandbox.R;
  * http://developer.android.com/guide/components/intents-common.html#Search
  * https://github.com/google/search-samples
  */
-public class VoiceSearchableActivity extends ActionBarActivity {
+public class VoiceSearchableActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
