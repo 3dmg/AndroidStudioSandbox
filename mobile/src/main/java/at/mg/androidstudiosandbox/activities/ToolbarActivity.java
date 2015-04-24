@@ -108,7 +108,8 @@ public class ToolbarActivity extends AppCompatActivity {
         }
 
         private void paletteTest(final View rootView, int drawable) {
-            Palette.generateAsync(BitmapFactory.decodeResource(getResources(), drawable), 24, new Palette.PaletteAsyncListener() {
+
+            new Palette.Builder(BitmapFactory.decodeResource(getResources(), drawable)).maximumColorCount(24).generate(new Palette.PaletteAsyncListener() {
                 @Override
                 public void onGenerated(Palette palette) {
                     Palette.Swatch swatch;

@@ -2,10 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".HomeActivity$PlaceholderFragment">
 
     <LinearLayout
@@ -14,99 +14,99 @@
         android:orientation="vertical">
 
         <TextView
-            android:text="@string/hello_world"
             android:layout_width="wrap_content"
-            android:background="#ffffff"
-
+            android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
-            android:layout_height="wrap_content" />
+
+            android:background="#ffffff"
+            android:text="@string/hello_world" />
 
         <TextView
-            android:layout_marginTop="24dp"
-            android:text="@string/hello_world"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
-            android:elevation="1dp"
+            android:layout_marginTop="24dp"
             android:background="#ffffff"
-            android:layout_height="wrap_content" />
+            android:elevation="1dp"
+            android:text="@string/hello_world" />
 
         <TextView
             android:id="@+id/home_text"
-            android:text="@string/hello_world"
-            android:layout_marginTop="24dp"
-            android:elevation="10dp"
-            android:layout_marginLeft="8dp"
-            android:background="#ffffff"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="24dp"
+            android:background="#ffffff"
+            android:elevation="10dp"
+            android:text="@string/hello_world" />
 
 
         <EditText
-            android:layout_marginTop="24dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp" />
 
         <Button
             android:id="@+id/home_button"
-            android:layout_marginTop="24dp"
             android:layout_width="match_parent"
-            android:text="Button"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:stateListAnimator="@anim/raise"
-            android:layout_height="wrap_content" />
+            android:text="Button" />
 
         <CheckBox
             android:layout_width="wrap_content"
-            android:text="CheckBox"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="CheckBox" />
 
         <RadioButton
-            android:layout_marginTop="24dp"
-            android:text="RadioButton"
-            android:elevation="5dp"
-            android:background="@drawable/bg_ripple"
-            android:padding="4dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_ripple"
+            android:elevation="5dp"
+            android:padding="4dp"
+            android:text="RadioButton" />
 
         <android.support.v7.widget.CardView
-            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_marginTop="16dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:background="#ffffff"
                     android:text="Title String"
-                    android:layout_width="wrap_content"
-                    android:background="#ffffff"
-                    android:layout_marginLeft="8dp"
-                    android:textAppearance="@android:style/TextAppearance.Material.Title"
-                    android:layout_height="wrap_content" />
+                    android:textAppearance="@android:style/TextAppearance.Material.Title" />
 
                 <TextView
 
-                    android:text="Body Text"
                     android:layout_width="wrap_content"
-                    android:background="#ffffff"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                    android:layout_height="wrap_content" />
+                    android:background="#ffffff"
+                    android:text="Body Text"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
                 <ImageView
                     android:id="@+id/home_image"
-                    android:transitionName="@string/transition_image"
                     android:layout_width="64dp"
                     android:layout_height="48dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/palettetest2" />
+                    android:src="@drawable/palettetest2"
+                    android:transitionName="@string/transition_image" />
 
             </LinearLayout>
 
@@ -114,18 +114,18 @@
     </LinearLayout>
 
     <ImageButton
+        android:id="@+id/fab"
         android:layout_width="@dimen/fab_size"
         android:layout_height="@dimen/fab_size"
-        android:src="@drawable/plus"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="32dp"
         android:layout_marginBottom="32dp"
-        android:tint="@android:color/white"
-        android:id="@+id/fab"
-
+        android:layout_marginRight="32dp"
         android:background="@drawable/bg_ripple"
-        android:stateListAnimator="@anim/fab_anim" />
+        android:src="@drawable/plus"
+
+        android:stateListAnimator="@anim/fab_anim"
+        android:tint="@android:color/white" />
 
 
 </RelativeLayout>
