@@ -4,12 +4,16 @@ import android.animation.Animator;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.graphics.ColorUtils;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewAnimationUtils;
@@ -90,6 +94,19 @@ public class PlaceholderFragment extends Fragment {
 //                startActivity(intent, optionsCompat.toBundle());
             }
         });
+
+        int buttonColor = Color.BLACK;
+        TypedValue a = new TypedValue();
+        getActivity().getTheme().resolveAttribute(R.attr.colorButtonNormal, a, true);
+        if (a.type >= TypedValue.TYPE_FIRST_COLOR_INT && a.type <= TypedValue.TYPE_LAST_COLOR_INT) {
+            buttonColor = a.data;
+        }
+
+        int minAlpha = ColorUtils.calculateMinimumAlpha(Color.BLACK, buttonColor, 4.5f);
+        Log.i("PF", "minAlpha: " + minAlpha);
+        if (minAlpha != -1) {
+            button.setTextColor(ColorUtils.setAlphaComponent(Color.BLACK, minAlpha));
+        }
 
         ImageButton fab = (ImageButton) rootView.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
