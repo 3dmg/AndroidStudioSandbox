@@ -3,16 +3,19 @@ package at.mg.androidstudiosandbox.fragments;
 import android.animation.Animator;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewCompat;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import at.mg.androidstudiosandbox.R;
@@ -85,6 +88,18 @@ public class PlaceholderFragment extends Fragment {
                 ActivityCompat.startActivity(getActivity(), intent, optionsCompat.toBundle());
 //                ActivityOptions optionsCompat = ActivityOptions.makeSceneTransitionAnimation(getActivity(), image, transitionName);
 //                startActivity(intent, optionsCompat.toBundle());
+            }
+        });
+
+        ImageButton fab = (ImageButton) rootView.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Resources r = getResources();
+                AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).setTitle(r.getString(R.string.dialog_title))
+                        .setMessage(r.getString(R.string.dialog_message)).setPositiveButton(r.getString(R.string.dialog_pos), null)
+                        .setNegativeButton(r.getString(R.string.dialog_neg), null).setNeutralButton(r.getString(R.string.dialog_neutr), null).create();
+                alertDialog.show();
             }
         });
 

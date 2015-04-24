@@ -14,5 +14,10 @@
     <string name="title_activity_voice_searchable">VoiceSearchableActivity</string>
     <string name="transition_image">transimg</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dialog_title">Support AlterDialog</string>
+    <string name="dialog_message">Support</string>
+    <string name="dialog_pos">Yeeha</string>
+    <string name="dialog_neg">Nooo</string>
+    <string name="dialog_neutr">Blub</string>
 
 </resources>
