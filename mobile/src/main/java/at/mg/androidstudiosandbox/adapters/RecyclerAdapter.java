@@ -18,7 +18,7 @@ import at.mg.androidstudiosandbox.things.RecyclerListViewHolder;
  */
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerListViewHolder> {
 
-    private List<RecyclerDataObject> list;
+    private final List<RecyclerDataObject> list;
 
     public RecyclerAdapter(List<RecyclerDataObject> list) {
         this.list = list;

@@ -13,7 +13,7 @@ public class RecyclerDataObject {
         this.date = date;
     }
 
-    public String title;
-    public String description;
-    public String date;
+    public final String title;
+    public final String description;
+    public final String date;
 }

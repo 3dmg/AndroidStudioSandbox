@@ -16,7 +16,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import at.mg.androidstudiosandbox.R;
-import at.mg.androidstudiosandbox.activities.HomeActivity;
 import at.mg.androidstudiosandbox.activities.ToolbarActivity;
 
 

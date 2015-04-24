@@ -36,12 +36,12 @@ public class RecyclerFragment extends Fragment {
      * @return A new instance of fragment RecyclerFragment.
      */
     public static RecyclerFragment newInstance() {
-        RecyclerFragment fragment = new RecyclerFragment();
+//        RecyclerFragment fragment = new RecyclerFragment();
 //        Bundle args = new Bundle();
 //        args.putString(ARG_PARAM1, param1);
 //        args.putString(ARG_PARAM2, param2);
 //        fragment.setArguments(args);
-        return fragment;
+        return new RecyclerFragment();
     }
 
     public RecyclerFragment() {
@@ -165,7 +165,7 @@ public class RecyclerFragment extends Fragment {
         return list;
     }
 
-    public static String random(int length) {
+    private static String random(int length) {
         char[] chars1 = "ABCDEF012GHIJKL345MNOPQR678STUVWXYZ9".toCharArray();
         StringBuilder sb1 = new StringBuilder();
         Random random1 = new Random();

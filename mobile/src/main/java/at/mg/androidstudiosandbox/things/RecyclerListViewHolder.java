@@ -13,7 +13,9 @@ import at.mg.androidstudiosandbox.R;
  */
 public class RecyclerListViewHolder extends RecyclerView.ViewHolder {
 
-    public TextView title, desc, date;
+    public final TextView title;
+    public final TextView desc;
+    public final TextView date;
 
     public RecyclerListViewHolder(View itemView) {
         super(itemView);
