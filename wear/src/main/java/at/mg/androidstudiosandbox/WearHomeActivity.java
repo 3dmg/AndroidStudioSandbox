@@ -1,11 +1,11 @@
 package at.mg.androidstudiosandbox;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.wearable.activity.WearableActivity;
 import android.support.wearable.view.WatchViewStub;
 import android.widget.TextView;
 
-public class WearHomeActivity extends Activity {
+public class WearHomeActivity extends WearableActivity {
 
     private TextView mTextView;
 
