@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.Collections;
 import java.util.List;
 
 import at.mg.androidstudiosandbox.R;
@@ -58,6 +59,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerListViewHolder
     }
 
     public void moveItem(int from, int to) {
+        Collections.swap(list, from, to);
         notifyItemMoved(from, to);
     }
 }

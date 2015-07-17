@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -133,6 +135,48 @@ public class RecyclerFragment extends Fragment {
 //                adapter.notifyDataSetChanged();
 //            }
 //        }, 3000);
+
+
+        // enables swipe to delete and drag&drop
+        // see also https://developer.android.com/reference/android/support/v7/widget/helper/ItemTouchHelper.SimpleCallback.html
+        ItemTouchHelper.Callback ithcb = new ItemTouchHelper.Callback() {
+            @Override
+            public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+                Log.i("", "getMovementFlags " + viewHolder);
+                int dragFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN;
+                int swipeFlags = ItemTouchHelper.START | ItemTouchHelper.END;
+                int movementFlags = makeMovementFlags(dragFlags, swipeFlags);
+                Log.i("", "getMovementFlags " + viewHolder + " " + movementFlags);
+                return movementFlags;
+            }
+
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                Log.i("", "onMove " + viewHolder + " " + target);
+                adapter.moveItem(viewHolder.getAdapterPosition(), target.getAdapterPosition());
+
+                return true;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                Log.i("", "onSwiped " + viewHolder + " " + direction);
+
+                adapter.removeItem(viewHolder.getAdapterPosition());
+            }
+
+            @Override
+            public boolean isLongPressDragEnabled() {
+                return true;
+            }
+
+            @Override
+            public boolean isItemViewSwipeEnabled() {
+                return true;
+            }
+        };
+        ItemTouchHelper touchHelper = new ItemTouchHelper(ithcb);
+        touchHelper.attachToRecyclerView(recyclerView);
 
 
         return view;
