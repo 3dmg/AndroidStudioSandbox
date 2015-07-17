@@ -12,6 +12,9 @@ model {
             targetSdkVersion.apiLevel = 22
             versionCode = 1
             versionName = "1.0"
+
+            //set apk name
+            project.ext.set("archivesBaseName", "AndroidSandbox-" + defaultConfig.versionName);
         }
     }
 
@@ -34,6 +37,9 @@ model {
 }
 
 dependencies {
+
+    compile 'com.facebook.stetho:stetho:1.1.1'
+
     compile 'com.google.android.gms:play-services:7.5.0'
     compile 'com.android.support:support-v4:22.2.0'
     compile 'com.android.support:appcompat-v7:22.2.0'
