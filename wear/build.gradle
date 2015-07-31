@@ -1,37 +1,33 @@
-apply plugin: 'com.android.model.application'
+apply plugin: 'com.android.application'
 
 
-model {
-    android {
-        compileSdkVersion = 22
-        buildToolsVersion = "22.0.1"
-        publishNonDefault = true
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
 
-        defaultConfig.with {
-            applicationId = "at.mg.androidstudiosandbox"
-            minSdkVersion.apiLevel = 20
-            targetSdkVersion.apiLevel = 22
-            versionCode = 1
-            versionName = "1.0"
-        }
+    defaultConfig {
+        applicationId "at.mg.androidstudiosandbox"
+        minSdkVersion 20
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
     }
 
-    android.lintOptions {
-        abortOnError = false
+    lintOptions {
+        abortOnError false
     }
 
-    android.buildTypes {
+    buildTypes {
         release {
-            isMinifyEnabled = false
-            proguardFiles += file('proguard-rules.pro')
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.google.android.support:wearable:1.2.0'
-    compile 'com.google.android.wearable:wearable:1.0.0'
+    provided 'com.google.android.wearable:wearable:1.0.0'
     compile 'com.google.android.gms:play-services-wearable:7.5.0'
 }

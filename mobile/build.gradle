@@ -1,52 +1,40 @@
-apply plugin: 'com.android.model.application'
+apply plugin: 'com.android.application'
+apply plugin: 'com.android.databinding'
 //apply plugin: 'hugo'
 
-model {
-    android {
-        compileSdkVersion = 22
-        buildToolsVersion = "22.0.1"
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
 
-        defaultConfig.with {
-            applicationId = "at.mg.androidstudiosandbox"
-            minSdkVersion.apiLevel = 21
-            targetSdkVersion.apiLevel = 22
-            versionCode = 1
-            versionName = "1.0"
-
-            //set apk name
-            project.ext.set("archivesBaseName", "AndroidSandbox-" + defaultConfig.versionName);
-        }
+    defaultConfig {
+        applicationId "at.mg.androidstudiosandbox"
+        minSdkVersion 21
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
     }
 
-    android.lintOptions {
-        abortOnError = false
+    lintOptions {
+        abortOnError false
     }
 
-    android.buildTypes {
+    buildTypes {
         release {
-            isMinifyEnabled = false
-            proguardFiles += file('proguard-rules.pro')
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-
-        debug {
-            isEmbedMicroApp = true
-        }
-
     }
-
 }
 
 dependencies {
-
-    compile 'com.facebook.stetho:stetho:1.1.1'
-
     compile 'com.google.android.gms:play-services:7.5.0'
-    compile 'com.android.support:support-v4:22.2.0'
-    compile 'com.android.support:appcompat-v7:22.2.0'
-    compile 'com.android.support:palette-v7:22.2.0'
-    compile 'com.android.support:cardview-v7:22.2.0'
-    compile 'com.android.support:recyclerview-v7:22.2.0'
-    compile 'com.android.support:support-annotations:22.2.0'
+    compile 'com.android.support:support-v4:22.2.1'
+    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.android.support:palette-v7:22.2.1'
+    compile 'com.android.support:cardview-v7:22.2.1'
+    compile 'com.android.support:recyclerview-v7:22.2.1'
+    compile 'com.android.support:support-annotations:22.2.1'
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
+    wearApp project(':wear')
 }

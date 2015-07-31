@@ -1,5 +1,7 @@
 package at.mg.androidstudiosandbox.things;
 
+import android.support.annotation.Nullable;
+
 /**
  * dataobject for the RecyclerView
  * <p/>
@@ -7,13 +9,18 @@ package at.mg.androidstudiosandbox.things;
  */
 public class RecyclerDataObject {
 
-    public RecyclerDataObject(String title, String description, String date) {
+    @Nullable
+    public final String title;
+    @Nullable
+    public final String description;
+    @Nullable
+    public final String date;
+
+    public RecyclerDataObject(@Nullable String title, @Nullable String description, @Nullable String date) {
         this.title = title;
         this.description = description;
         this.date = date;
     }
 
-    public final String title;
-    public final String description;
-    public final String date;
+
 }

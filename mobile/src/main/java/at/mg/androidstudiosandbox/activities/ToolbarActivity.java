@@ -4,6 +4,7 @@ package at.mg.androidstudiosandbox.activities;
 import android.app.Fragment;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
@@ -107,7 +108,7 @@ public class ToolbarActivity extends AppCompatActivity {
             return rootView;
         }
 
-        private void paletteTest(final View rootView, int drawable) {
+        private void paletteTest(final View rootView, @DrawableRes int drawable) {
 
             new Palette.Builder(BitmapFactory.decodeResource(getResources(), drawable)).maximumColorCount(24).generate(new Palette.PaletteAsyncListener() {
                 @Override
