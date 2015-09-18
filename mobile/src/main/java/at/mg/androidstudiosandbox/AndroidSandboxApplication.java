@@ -2,7 +2,7 @@ package at.mg.androidstudiosandbox;
 
 import android.app.Application;
 
-import com.facebook.stetho.Stetho;
+//import com.facebook.stetho.Stetho;
 
 /**
  * Application class :)
@@ -15,16 +15,16 @@ public class AndroidSandboxApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        if (BuildConfig.DEBUG) {
-            // http://facebook.github.io/stetho/
-            Stetho.initialize(
-                    Stetho.newInitializerBuilder(this)
-                            .enableDumpapp(
-                                    Stetho.defaultDumperPluginsProvider(this))
-                            .enableWebKitInspector(
-                                    Stetho.defaultInspectorModulesProvider(this))
-                            .build());
-        }
+//        if (BuildConfig.DEBUG) {
+//            // http://facebook.github.io/stetho/
+//            Stetho.initialize(
+//                    Stetho.newInitializerBuilder(this)
+//                            .enableDumpapp(
+//                                    Stetho.defaultDumperPluginsProvider(this))
+//                            .enableWebKitInspector(
+//                                    Stetho.defaultInspectorModulesProvider(this))
+//                            .build());
+//        }
     }
 
 }

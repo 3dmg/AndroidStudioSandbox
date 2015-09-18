@@ -209,11 +209,14 @@ public class RecyclerFragment extends Fragment {
         return list;
     }
 
-    private static String random(int length) {
+    private static String random(int maxLength) {
         char[] chars1 = "ABCDEF012GHIJKL345MNOPQR678STUVWXYZ9".toCharArray();
         StringBuilder sb1 = new StringBuilder();
         Random random1 = new Random();
-        length = random1.nextInt(length);
+        int length;
+        do {
+            length = random1.nextInt(maxLength);
+        } while (length < 5);
         for (int i = 0; i < length; i++) {
             char c1 = chars1[random1.nextInt(chars1.length)];
             sb1.append(c1);
