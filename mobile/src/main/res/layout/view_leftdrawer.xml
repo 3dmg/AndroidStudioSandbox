@@ -13,10 +13,10 @@
         android:orientation="vertical">
 
         <at.mg.androidstudiosandbox.views.LeftDrawerItemView
-            android:layout_marginTop="56dp"
             android:id="@+id/leftdrawer_home"
             android:layout_width="match_parent"
             android:layout_height="48dp"
+            android:layout_marginTop="56dp"
             android:onClick="onClickLeftDrawerItem"
             custom:text="Home" />
 
@@ -27,11 +27,18 @@
             android:onClick="onClickLeftDrawerItem"
             custom:text="Recycler" />
 
+        <at.mg.androidstudiosandbox.views.LeftDrawerItemView
+            android:id="@+id/leftdrawer_nestedscroll"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:onClick="onClickLeftDrawerItem"
+            custom:text="NestedScrollViews" />
+
 
         <View
-            android:paddingTop="8dp"
+            style="@style/drawer_divider"
             android:paddingBottom="8dp"
-            style="@style/drawer_divider" />
+            android:paddingTop="8dp" />
 
 
     </LinearLayout>

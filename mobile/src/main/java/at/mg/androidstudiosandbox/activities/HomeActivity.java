@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import at.mg.androidstudiosandbox.R;
+import at.mg.androidstudiosandbox.fragments.NestedScrollViewFragment;
 import at.mg.androidstudiosandbox.fragments.PlaceholderFragment;
 import at.mg.androidstudiosandbox.fragments.RecyclerFragment;
 
@@ -125,6 +126,10 @@ public class HomeActivity extends AppCompatActivity {
         } else if (view.getId() == R.id.leftdrawer_recycler) {
             fragmentManager.beginTransaction()
                     .replace(R.id.container, RecyclerFragment.newInstance())
+                    .commit();
+        } else if (view.getId() == R.id.leftdrawer_nestedscroll) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, NestedScrollViewFragment.newInstance())
                     .commit();
         }
 
