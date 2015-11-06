@@ -2,10 +2,6 @@
 <resources>
 
 
-    <declare-styleable name="LeftDrawerItem">
-        <attr name="image" format="reference" />
-        <attr name="text" format="string" />
-        <attr name="news_color" format="color" />
-    </declare-styleable>
+
 
 </resources>

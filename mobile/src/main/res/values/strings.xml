@@ -18,5 +18,6 @@
     <string name="dialog_pos">Yeeha</string>
     <string name="dialog_neg">Nooo</string>
     <string name="dialog_neutr">Blub</string>
+    <string name="title_activity_coordinator">CoordinatorActivity</string>
 
 </resources>

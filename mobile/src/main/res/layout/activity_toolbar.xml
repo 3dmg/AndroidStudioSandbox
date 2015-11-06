@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="at.mg.androidstudiosandbox.activities.ToolbarActivity"
+    tools:context=".activities.PaletteActivity"
     tools:ignore="MergeRootFrame">
 
     <android.support.v7.widget.Toolbar

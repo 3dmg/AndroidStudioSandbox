@@ -8,4 +8,5 @@
     <dimen name="end_z">0dp</dimen>
 
     <dimen name="navigationdrawer_width">304dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.android.databinding'
 //apply plugin: 'hugo'
 
 android {
@@ -24,6 +23,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    //https://developer.android.com/tools/data-binding/guide.html
+    dataBinding {
+        enabled true
+    }
 }
 
 dependencies {
@@ -31,7 +35,7 @@ dependencies {
 //        exclude module: 'support-v4'
 //    }
 
-    compile 'com.google.android.gms:play-services:8.1.0'
+    compile 'com.google.android.gms:play-services:8.3.0'
     compile 'com.android.support:support-v4:23.1.0'
     compile 'com.android.support:appcompat-v7:23.1.0'
     compile 'com.android.support:palette-v7:23.1.0'

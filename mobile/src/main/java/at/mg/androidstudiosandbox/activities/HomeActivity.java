@@ -1,19 +1,20 @@
 package at.mg.androidstudiosandbox.activities;
 
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 
 import at.mg.androidstudiosandbox.R;
+import at.mg.androidstudiosandbox.fragments.HomeFragment;
 import at.mg.androidstudiosandbox.fragments.NestedScrollViewFragment;
-import at.mg.androidstudiosandbox.fragments.PlaceholderFragment;
 import at.mg.androidstudiosandbox.fragments.RecyclerFragment;
 
 public class HomeActivity extends AppCompatActivity {
@@ -36,14 +37,38 @@ public class HomeActivity extends AppCompatActivity {
             actionBar.setHomeButtonEnabled(true);
         }
 
-//        mNavigationDrawerFragment = (NavigationDrawerFragment)
-//                getFragmentManager().findFragmentById(R.id.navigation_drawer);
-//        mTitle = getTitle();
+        NavigationView nv = (NavigationView) findViewById(R.id.nav_view);
+        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                // update the main content by replacing fragments
+                FragmentManager fragmentManager = getSupportFragmentManager();
 
-        // Set up the drawer.
-//        mNavigationDrawerFragment.setUp(
-//                R.id.navigation_drawer,
-//                (DrawerLayout) findViewById(R.id.drawer_layout));
+                switch (item.getItemId()) {
+                    case R.id.navigation_item_1:
+                        fragmentManager.beginTransaction()
+                                .replace(R.id.container, HomeFragment.newInstance(0))
+                                .commit();
+                        mDrawerLayout.closeDrawer(GravityCompat.START);
+                        return true;
+                    case R.id.navigation_item_2:
+                        fragmentManager.beginTransaction()
+                                .replace(R.id.container, RecyclerFragment.newInstance())
+                                .commit();
+                        mDrawerLayout.closeDrawer(GravityCompat.START);
+                        return true;
+                    case R.id.navigation_item_3:
+                        fragmentManager.beginTransaction()
+                                .replace(R.id.container, NestedScrollViewFragment.newInstance())
+                                .commit();
+                        mDrawerLayout.closeDrawer(GravityCompat.START);
+                        return true;
+                }
+
+
+                return false;
+            }
+        });
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -88,11 +113,11 @@ public class HomeActivity extends AppCompatActivity {
 
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
-        mDrawerLayout.setStatusBarBackgroundColor(getResources().getColor(android.R.color.holo_blue_dark));
+//        mDrawerLayout.setStatusBarBackgroundColor(getResources().getColor(android.R.color.holo_blue_dark));
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(0))
+                .replace(R.id.container, HomeFragment.newInstance(0))
                 .commit();
     }
 
@@ -114,25 +139,5 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void onClickLeftDrawerItem(View view) {
-        // update the main content by replacing fragments
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        if (view.getId() == R.id.leftdrawer_home) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.container, PlaceholderFragment.newInstance(0))
-                    .commit();
-        } else if (view.getId() == R.id.leftdrawer_recycler) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.container, RecyclerFragment.newInstance())
-                    .commit();
-        } else if (view.getId() == R.id.leftdrawer_nestedscroll) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.container, NestedScrollViewFragment.newInstance())
-                    .commit();
-        }
-
-        mDrawerLayout.closeDrawer(Gravity.LEFT);
     }
 }

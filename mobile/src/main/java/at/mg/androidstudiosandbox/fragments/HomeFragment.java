@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
@@ -19,17 +20,17 @@ import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import at.mg.androidstudiosandbox.R;
-import at.mg.androidstudiosandbox.activities.ToolbarActivity;
+import at.mg.androidstudiosandbox.activities.CoordinatorActivity;
+import at.mg.androidstudiosandbox.activities.PaletteActivity;
 
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class PlaceholderFragment extends Fragment {
+public class HomeFragment extends Fragment {
     /**
      * The fragment argument representing the section number for this
      * fragment.
@@ -40,15 +41,15 @@ public class PlaceholderFragment extends Fragment {
      * Returns a new instance of this fragment for the given section
      * number.
      */
-    public static PlaceholderFragment newInstance(int sectionNumber) {
-        PlaceholderFragment fragment = new PlaceholderFragment();
+    public static HomeFragment newInstance(int sectionNumber) {
+        HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
         return fragment;
     }
 
-    public PlaceholderFragment() {
+    public HomeFragment() {
     }
 
     @Override
@@ -81,17 +82,22 @@ public class PlaceholderFragment extends Fragment {
 
 
         final View image = rootView.findViewById(R.id.home_image);
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PaletteActivity.class);
+                String transitionName = getString(R.string.transition_image);
+                ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), image, transitionName);
+                ActivityCompat.startActivity(getActivity(), intent, optionsCompat.toBundle());
+            }
+        });
+
 
         Button button = (Button) rootView.findViewById(R.id.home_button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ToolbarActivity.class);
-                String transitionName = getString(R.string.transition_image);
-                ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), image, transitionName);
-                ActivityCompat.startActivity(getActivity(), intent, optionsCompat.toBundle());
-//                ActivityOptions optionsCompat = ActivityOptions.makeSceneTransitionAnimation(getActivity(), image, transitionName);
-//                startActivity(intent, optionsCompat.toBundle());
+                startActivity(new Intent(getContext(), CoordinatorActivity.class));
             }
         });
 
@@ -108,7 +114,7 @@ public class PlaceholderFragment extends Fragment {
             button.setTextColor(ColorUtils.setAlphaComponent(Color.BLACK, minAlpha));
         }
 
-        ImageButton fab = (ImageButton) rootView.findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

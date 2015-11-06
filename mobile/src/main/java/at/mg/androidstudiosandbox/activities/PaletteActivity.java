@@ -22,7 +22,7 @@ import java.util.List;
 import at.mg.androidstudiosandbox.R;
 
 
-public class ToolbarActivity extends AppCompatActivity {
+public class PaletteActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class ToolbarActivity extends AppCompatActivity {
 
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
+                    .add(R.id.container, new PaletteFragment())
                     .commit();
         }
 
@@ -77,11 +77,11 @@ public class ToolbarActivity extends AppCompatActivity {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment {
+    public static class PaletteFragment extends Fragment {
 
         boolean useImage1 = false;
 
-        public PlaceholderFragment() {
+        public PaletteFragment() {
         }
 
         @Override
