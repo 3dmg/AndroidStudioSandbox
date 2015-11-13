@@ -19,5 +19,9 @@
     <string name="dialog_neg">Nooo</string>
     <string name="dialog_neutr">Blub</string>
     <string name="title_activity_coordinator">CoordinatorActivity</string>
+    <string name="title_activity_blubb">BlubbActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -4,23 +4,26 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
 
         <!--   your app's branding color (for the app bar) -->
-        <item name="colorPrimary">#ff6addaa</item>
+        <item name="colorPrimary">#69f0ae</item>
         <!--   darker variant of colorPrimary (for status bar, contextual app bars) -->
-        <item name="colorPrimaryDark">#ff393a80</item>
+        <item name="colorPrimaryDark">#283593</item>
         <!--<item name="android:statusBarColor">#345344</item>-->
 
         <!--   theme UI controls like checkboxes and text fields -->
-        <item name="colorAccent">#ff51ca7c</item>
+        <item name="colorAccent">#66bb6a</item>
 
         <!--<item name="textColorPrimary">#ff141632</item>-->
 
-        <item name="colorControlHighlight">#0000AA</item>
+        <item name="colorControlHighlight">#3949ab</item>
 
         <!--<item name="navigationBarColor">#ffff68d6</item>-->
 
-        <item name="colorControlNormal">#05390c</item>
+        <item name="colorControlNormal">#212121</item>
 
-        <item name="colorButtonNormal">#ff26ef00</item>
+        <item name="colorButtonNormal">#64dd17</item>
+
+        <!-- Customize your theme here. -->
+        <item name="android:windowTranslucentStatus">@bool/windowTranslucentStatus</item>
 
         <!--<item name="colorEdgeEffect">#ffa39216</item>-->
 
@@ -33,6 +36,8 @@
         <!--<item name="windowActionModeOverlay">true</item>-->
 
     </style>
+
+    <bool name="windowTranslucentStatus">false</bool>
 
 
     <style name="AppTheme.Toolbar" parent="Widget.AppCompat.Toolbar">

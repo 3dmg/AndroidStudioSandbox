@@ -41,7 +41,7 @@
         <activity
             android:name=".activities.CoordinatorActivity"
             android:label="@string/title_activity_coordinator"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>
