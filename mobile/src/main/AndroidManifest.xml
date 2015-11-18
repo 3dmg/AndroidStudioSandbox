@@ -40,8 +40,7 @@
         </activity>
         <activity
             android:name=".activities.CoordinatorActivity"
-            android:label="@string/title_activity_coordinator"
-            android:theme="@style/AppTheme" />
+            android:label="@string/title_activity_coordinator" />
     </application>
 
 </manifest>

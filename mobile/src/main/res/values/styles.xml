@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Base.AppTheme"></style>
+
+    <style name="Base.AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
 
         <!--   your app's branding color (for the app bar) -->
         <item name="colorPrimary">#69f0ae</item>
@@ -22,8 +24,6 @@
 
         <item name="colorButtonNormal">#64dd17</item>
 
-        <!-- Customize your theme here. -->
-        <item name="android:windowTranslucentStatus">@bool/windowTranslucentStatus</item>
 
         <!--<item name="colorEdgeEffect">#ffa39216</item>-->
 
@@ -36,8 +36,6 @@
         <!--<item name="windowActionModeOverlay">true</item>-->
 
     </style>
-
-    <bool name="windowTranslucentStatus">false</bool>
 
 
     <style name="AppTheme.Toolbar" parent="Widget.AppCompat.Toolbar">
