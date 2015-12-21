@@ -91,15 +91,15 @@ public class PaletteActivity extends AppCompatActivity {
 
             // see https://chris.banes.me/2014/10/20/palette-v21/
 
-            paletteTest(rootView, R.drawable.palettetest);
+            paletteTest(rootView, R.drawable.palettetest2);
 
             final ImageView image = (ImageView) rootView.findViewById(R.id.toolbar_image);
 
             image.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    image.setImageResource(useImage1 ? R.drawable.palettetest : R.drawable.palettetest2);
-                    paletteTest(rootView, useImage1 ? R.drawable.palettetest : R.drawable.palettetest2);
+                    image.setImageResource(useImage1 ? R.drawable.palettetest2 : R.drawable.palettetest);
+                    paletteTest(rootView, useImage1 ? R.drawable.palettetest2 : R.drawable.palettetest);
                     useImage1 = !useImage1;
                 }
             });

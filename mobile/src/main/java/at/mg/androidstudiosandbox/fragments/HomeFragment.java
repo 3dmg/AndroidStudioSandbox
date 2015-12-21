@@ -1,7 +1,6 @@
 package at.mg.androidstudiosandbox.fragments;
 
 import android.animation.Animator;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -129,12 +128,7 @@ public class HomeFragment extends Fragment {
         return rootView;
     }
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-//        ((HomeActivity) activity).onSectionAttached(
-//                getArguments().getInt(ARG_SECTION_NUMBER));
-    }
+
 
 
 }
