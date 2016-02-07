@@ -12,7 +12,7 @@ Testing the Android Studio, the new Android L and Android Wear features.
 License
 -------
 
-    Copyright 2015 Markus Gassenbauer
+    Copyright 2016 Markus Gassenbauer
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
