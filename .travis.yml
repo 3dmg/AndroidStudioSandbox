@@ -1,33 +1,6 @@
 language: android
-jdk: oraclejdk7
-# Turn off caching to avoid any caching problems
-cache: false
-sudo: false
-
-android:
-  components:
-    - build-tools-23.0.2
-    - android-23
-    - extra-android-support
-    - extra-google-google_play_services
-    - extra-google-m2repository
-    - extra-android-m2repository
-    
-notifications:
-  email: false
-
-before_install:
-
-  # for gradle output style
-  - export TERM=dumb
-
-  - chmod +x gradlew
-
-  # environment info
-  - ./gradlew -v
-  - uname -a
-
-# Let's try to build...
-script: ./gradlew clean build    
-
-
+script:
+- ./gradlew build
+branches:
+only:
+- master
