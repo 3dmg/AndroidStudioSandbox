@@ -3,9 +3,7 @@ AndroidStudioSandbox
 
 Start with Android Studio
 
-Testing the Android Studio, the new Android L and Android Wear features.
-
-[![Build Status](https://travis-ci.org/3dmg/AndroidStudioSandbox.svg?branch=master)](https://travis-ci.org/3dmg/AndroidStudioSandbox)
+Testing Android Studio, new Android and Android Wear features.
 
 
 
