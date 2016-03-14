@@ -8,22 +8,21 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".activities.PaletteActivity$PaletteFragment">
 
-    <ImageView
+    <ImageSwitcher
         android:id="@+id/toolbar_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="160dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
-        android:adjustViewBounds="true"
-        android:src="@drawable/palettetest2"
+        android:adjustViewBounds="false"
         android:transitionName="@string/transition_image" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar_image"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:orientation="vertical">
 
         <TextView

@@ -11,13 +11,13 @@ buildscript {
 
         // new plugin http://tools.android.com/tech-docs/new-build-system/gradle-experimental
 //        classpath 'com.android.tools.build:gradle-experimental:0.1.0'
-        classpath 'com.android.tools.build:gradle:1.5.0'
+        classpath 'com.android.tools.build:gradle:2.0.0-beta6'
 
     }
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.10'
+    gradleVersion = '2.11'
 }
 
 allprojects {

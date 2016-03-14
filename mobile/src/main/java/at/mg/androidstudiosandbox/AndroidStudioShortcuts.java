@@ -27,6 +27,18 @@ import android.text.TextUtils;
 @SuppressWarnings({"ResultOfMethodCallIgnored", "RedundantIfStatement", "UnusedAssignment"})
 class AndroidStudioShortcuts {
 
+    // language injection
+    String jsonString = "{\n" +
+            "  \"name\": \"foo\",\n" +
+            "  \"language injection\": \"Alt + Enter -> Inject language\",\n" +
+            "  \"object\": {\n" +
+            "    \"name\": \"max\",\n" +
+            "    \"age\": \"30\"\n" +
+            "  }\n" +
+            "}";
+    String htmlString = "<b>johu</b><a href='orf.at'/> ";
+    // check regexp
+    String colorRegex = "^#?([a-f0-9]{6}|[a-f0-9]{3})$";
 
     /**
      * rename with Shift + F6

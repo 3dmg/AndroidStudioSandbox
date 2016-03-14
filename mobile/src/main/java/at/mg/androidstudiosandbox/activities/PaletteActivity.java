@@ -14,8 +14,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ViewSwitcher;
 
 import java.util.List;
 
@@ -93,12 +96,22 @@ public class PaletteActivity extends AppCompatActivity {
 
             paletteTest(rootView, R.drawable.palettetest2);
 
-            final ImageView image = (ImageView) rootView.findViewById(R.id.toolbar_image);
+            final ImageSwitcher imageSwitcher = (ImageSwitcher) rootView.findViewById(R.id.toolbar_image);
 
-            image.setOnClickListener(new View.OnClickListener() {
+            imageSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
+                @Override
+                public View makeView() {
+                    return new ImageView(getActivity());
+                }
+            });
+            imageSwitcher.setInAnimation(AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_in));
+            imageSwitcher.setOutAnimation(AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_out));
+            imageSwitcher.setImageResource(R.drawable.palettetest2);
+
+            imageSwitcher.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    image.setImageResource(useImage1 ? R.drawable.palettetest2 : R.drawable.palettetest);
+                    imageSwitcher.setImageResource(useImage1 ? R.drawable.palettetest2 : R.drawable.palettetest);
                     paletteTest(rootView, useImage1 ? R.drawable.palettetest2 : R.drawable.palettetest);
                     useImage1 = !useImage1;
                 }
