@@ -38,36 +38,33 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         NavigationView nv = (NavigationView) findViewById(R.id.nav_view);
-        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(MenuItem item) {
-                // update the main content by replacing fragments
-                FragmentManager fragmentManager = getSupportFragmentManager();
+        nv.setNavigationItemSelectedListener(item -> {
+            // update the main content by replacing fragments
+            FragmentManager fragmentManager = getSupportFragmentManager();
 
-                switch (item.getItemId()) {
-                    case R.id.navigation_item_1:
-                        fragmentManager.beginTransaction()
-                                .replace(R.id.container, HomeFragment.newInstance(0))
-                                .commit();
-                        mDrawerLayout.closeDrawer(GravityCompat.START);
-                        return true;
-                    case R.id.navigation_item_2:
-                        fragmentManager.beginTransaction()
-                                .replace(R.id.container, RecyclerFragment.newInstance())
-                                .commit();
-                        mDrawerLayout.closeDrawer(GravityCompat.START);
-                        return true;
-                    case R.id.navigation_item_3:
-                        fragmentManager.beginTransaction()
-                                .replace(R.id.container, NestedScrollViewFragment.newInstance())
-                                .commit();
-                        mDrawerLayout.closeDrawer(GravityCompat.START);
-                        return true;
-                }
-
-
-                return false;
+            switch (item.getItemId()) {
+                case R.id.navigation_item_1:
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.container, HomeFragment.newInstance(0))
+                            .commit();
+                    mDrawerLayout.closeDrawer(GravityCompat.START);
+                    return true;
+                case R.id.navigation_item_2:
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.container, RecyclerFragment.newInstance())
+                            .commit();
+                    mDrawerLayout.closeDrawer(GravityCompat.START);
+                    return true;
+                case R.id.navigation_item_3:
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.container, NestedScrollViewFragment.newInstance())
+                            .commit();
+                    mDrawerLayout.closeDrawer(GravityCompat.START);
+                    return true;
             }
+
+
+            return false;
         });
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -104,12 +101,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
         // Defer code dependent on restoration of previous instance state.
-        mDrawerLayout.post(new Runnable() {
-            @Override
-            public void run() {
-                mDrawerToggle.syncState();
-            }
-        });
+        mDrawerLayout.post(() -> mDrawerToggle.syncState());
 
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 

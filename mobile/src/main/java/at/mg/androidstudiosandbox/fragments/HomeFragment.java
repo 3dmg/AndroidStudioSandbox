@@ -19,11 +19,18 @@ import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+
+import com.jakewharton.rxbinding.view.RxView;
+import com.jakewharton.rxbinding.widget.RxTextView;
+
+import java.util.concurrent.TimeUnit;
 
 import at.mg.androidstudiosandbox.R;
 import at.mg.androidstudiosandbox.activities.CoordinatorActivity;
 import at.mg.androidstudiosandbox.activities.PaletteActivity;
+import rx.Subscription;
 
 
 /**
@@ -64,41 +71,37 @@ public class HomeFragment extends Fragment {
         TextView newtext = new TextView(getActivity());
         newtext.setText("FLY IN");
 
-        textView.post(new Runnable() {
-            @Override
-            public void run() {
-                if (textView.isAttachedToWindow()) {
-                    Animator reveal = ViewAnimationUtils.createCircularReveal(
-                            textView, // The new View to reveal
-                            0,      // x co-ordinate to start the mask from
-                            0,      // y co-ordinate to start the mask from
-                            0,  // radius of the starting mask
-                            180);   // radius of the final mask
-                    reveal.start();
-                }
+        textView.post(() -> {
+            if (textView.isAttachedToWindow()) {
+                Animator reveal = ViewAnimationUtils.createCircularReveal(
+                        textView, // The new View to reveal
+                        0,      // x co-ordinate to start the mask from
+                        0,      // y co-ordinate to start the mask from
+                        0,  // radius of the starting mask
+                        180);   // radius of the final mask
+                reveal.start();
             }
         });
 
 
         final View image = rootView.findViewById(R.id.home_image);
-        image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), PaletteActivity.class);
-                String transitionName = getString(R.string.transition_image);
-                ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), image, transitionName);
-                ActivityCompat.startActivity(getActivity(), intent, optionsCompat.toBundle());
-            }
+        image.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), PaletteActivity.class);
+            String transitionName = getString(R.string.transition_image);
+            ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), image, transitionName);
+            ActivityCompat.startActivity(getActivity(), intent, optionsCompat.toBundle());
         });
 
 
         Button button = (Button) rootView.findViewById(R.id.home_button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getContext(), CoordinatorActivity.class));
-            }
-        });
+        button.setOnClickListener(v -> startActivity(new Intent(getContext(), CoordinatorActivity.class)));
+
+        View rxButton = rootView.findViewById(R.id.home_rxbutton);
+        Subscription subscribe = RxView.clicks(rxButton).subscribe(o -> Log.i("RX", "button clicked"), oe -> Log.e("RX", "onerror"));
+        subscribe.unsubscribe();
+
+        EditText editText = (EditText) rootView.findViewById(R.id.home_edit);
+        RxTextView.textChangeEvents(editText).debounce(1, TimeUnit.SECONDS).subscribe(textViewTextChangeEvent -> Log.i("RX", textViewTextChangeEvent.text().toString()));
 
         int buttonColor = Color.BLACK;
         TypedValue a = new TypedValue();
@@ -114,21 +117,14 @@ public class HomeFragment extends Fragment {
         }
 
         FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Resources r = getResources();
-                AlertDialog alertDialog = new AlertDialog.Builder(getActivity(), R.style.AppCompatAlertDialogStyle).setTitle(r.getString(R.string.dialog_title))
-                        .setMessage(r.getString(R.string.dialog_message)).setPositiveButton(r.getString(R.string.dialog_pos), null)
-                        .setNegativeButton(r.getString(R.string.dialog_neg), null).setNeutralButton(r.getString(R.string.dialog_neutr), null).create();
-                alertDialog.show();
-            }
+        fab.setOnClickListener(v -> {
+            Resources r = getResources();
+            AlertDialog alertDialog = new AlertDialog.Builder(getActivity(), R.style.AppCompatAlertDialogStyle).setTitle(r.getString(R.string.dialog_title))
+                    .setMessage(r.getString(R.string.dialog_message)).setPositiveButton(r.getString(R.string.dialog_pos), null)
+                    .setNegativeButton(r.getString(R.string.dialog_neg), null).setNeutralButton(r.getString(R.string.dialog_neutr), null).create();
+            alertDialog.show();
         });
 
         return rootView;
     }
-
-
-
-
 }
