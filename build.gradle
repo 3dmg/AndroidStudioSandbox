@@ -7,11 +7,12 @@ buildscript {
     }
     dependencies {
         //use @DebugLog for timekeeping
-        classpath 'com.jakewharton.hugo:hugo-plugin:1.2.1'
+        //classpath 'com.jakewharton.hugo:hugo-plugin:1.2.1'
 
         // new plugin http://tools.android.com/tech-docs/new-build-system/gradle-experimental
 //        classpath 'com.android.tools.build:gradle-experimental:0.1.0'
-        classpath 'com.android.tools.build:gradle:2.1.0-alpha5'
+        classpath 'com.android.tools.build:gradle:2.1.0-beta3'
+        classpath 'me.tatarka:gradle-retrolambda:3.3.0-beta4'
 
     }
 }
