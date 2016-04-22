@@ -8,6 +8,7 @@ import java.util.List;
 
 import rx.Observable;
 import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 //import com.facebook.stetho.Stetho;
@@ -117,10 +118,13 @@ public class AndroidSandboxApplication extends Application {
         Observable
                 .just(users)
                 .concatMap(Observable::from)
-                .observeOn(Schedulers.io())
+                .doOnNext(user1 -> {
+                    Log.i("RX", "onNext " + user1.name + " " + Thread.currentThread().getName());
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(user -> {
-                    Log.i("RX", user.name);
-                    Log.i("RX", "currentThread " + Thread.currentThread().getName());
+                    Log.i("RX", user.name + " " + Thread.currentThread().getName());
                 });
 
 
