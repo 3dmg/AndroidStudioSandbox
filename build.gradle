@@ -11,7 +11,7 @@ buildscript {
 
         // new plugin http://tools.android.com/tech-docs/new-build-system/gradle-experimental
 //        classpath 'com.android.tools.build:gradle-experimental:0.1.0'
-        classpath 'com.android.tools.build:gradle:2.2.0-beta2'
+        classpath 'com.android.tools.build:gradle:2.2.0-rc2'
         classpath 'me.tatarka:gradle-retrolambda:3.2.5'
 
     }
