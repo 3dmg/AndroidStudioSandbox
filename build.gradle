@@ -2,6 +2,7 @@
 
 buildscript {
     repositories {
+        google()
         jcenter()
         mavenCentral()
     }
@@ -11,18 +12,19 @@ buildscript {
 
         // new plugin http://tools.android.com/tech-docs/new-build-system/gradle-experimental
 //        classpath 'com.android.tools.build:gradle-experimental:0.1.0'
-        classpath 'com.android.tools.build:gradle:2.3.0-beta3'
-        classpath 'me.tatarka:gradle-retrolambda:3.2.5'
+        classpath 'com.android.tools.build:gradle:3.0.1'
+        //classpath 'me.tatarka:gradle-retrolambda:3.2.5'
 
     }
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '3.2.1'
+    gradleVersion = '4.6'
 }
 
 allprojects {
     repositories {
         jcenter()
+        google()
     }
 }
